@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Descuento
+{
+    public static void main (String[] args)
+    {   // entrada
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingresa el monto de la compra");
+        double compra = sc.nextDouble();
+        // calculo de IVA
+        double iva = compra * 0.08;
+        // inicializaar descuento
+        double descuento = 0;
+        //condicional simple para aplicar descuento
+        if (compra > 500)
+        {
+            descuento = compra * 0.20;
+
+        }
+        // calculo del total
+        double total = compra + iva - descuento;
+
+        System.out.println("subtotal $" + compra);
+        System.out.println("IVA (8%): $" + iva);
+        System.out.println("Descuento (20%):" + descuento);
+        System.out.println("Total a pagar: $" + total);
+    }
+}
