@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class BancoSwitch {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double saldo = 1000.00;
+        int opcion;
+
+        do {
+            System.out.println("\n===MENÚ BANCARIO===");
+            System.out.println("1. Consulta saldo");
+            System.out.println("2. Depositar dinero");
+            System.out.println("Retirar dinero");
+            System.out.println("0. Salir");
+            System.out.print("Seleccione una opción:");
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.print("\nSaldo actual: $" + String.format("%.2f", saldo));
+                    break;
+
+                case 2:
+                    System.out.print("\nIngrese el monto a depositar:");
+                    double deposito = scanner.nextDouble();
+                    if (deposito > 0) {
+                        saldo += deposito;
+                        System.out.println("Depósito realizado. \nNuevo saldo: $" + String.format("%.2f", saldo));
+                    } else {
+                        System.out.println("\nMonto Inválido");
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("\nIngreso el monto a retirar:");
+                    double retiro = scanner.nextDouble();
+                    if (retiro > 0 && retiro <= saldo) {
+                        saldo -= retiro;
+                        System.out.println("Retiro realizado. \nNuevo saldo: $" + String.format("%.2f", saldo));
+                    } else {
+                        System.out.println("\nRetiro inválido o saldo insuficiente");
+                    }
+                    break;
+                case 0:
+                    System.out.println("\nSaliendo del menu...");
+                    break;
+
+                default:
+                    System.out.println("\nOpción no Válida");
+            } try {
+                Thread.sleep(2500);
+
+
+            }catch (InterruptedException ignored){}
+
+        }while (opcion !=0);
+        scanner.close();
+
+    }
+}
+
+
+
